@@ -1,0 +1,5 @@
+.image-blog img {
+    width: 100%;
+    height: 200px; /* Yüksekliği sabitler */
+    object-fit: cover; /* Fotoğrafın düzenli görünmesini sağlar */
+}
