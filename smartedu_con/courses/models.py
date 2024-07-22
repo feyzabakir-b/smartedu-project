@@ -7,5 +7,5 @@ class Course(models.Model):
     date = models.DateTimeField(auto_now=True)
     available = models.BooleanField(default=True)
 
-def __str__(self):
-    return self.name
+    def __str__(self):
+        return self.name
