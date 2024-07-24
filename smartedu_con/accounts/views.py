@@ -5,6 +5,9 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from courses.models import Course
 from django.contrib.auth.models import User
+
+
+
 def user_login(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
@@ -69,4 +72,10 @@ def enroll_the_course(request):
     course = Course.objects.get(id = course_id)
     user = User.objects.get(id = user_id)
     course.students.add(user)
+    return redirect('dashboard')
+
+def release_the_course(request):
+    course = Course.objects.get(id = request.POST['course_id'])
+    user = User.objects.get(id = request.POST['user_id'])
+    course.students.remove(user)
     return redirect('dashboard')
